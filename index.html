@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E.M. Winters — Contemporary Romance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Cormorant+Garamond:ital,wght@0,500;1,500;1,600&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0e1a2b;
+    --midnight:#16233a;
+    --paper:#f4ecda;
+    --gold:#d7a552;
+    --wine:#7a2e35;
+    --wine-light:#9c4a4f;
+    --amber-deep:#4a2c12;
+    --amber-mid:#8a531f;
+    --line: rgba(244,236,218,0.18);
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter', sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+  }
+
+  .hook{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-weight:500;
+  }
+
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+
+  a{color:inherit;}
+
+  img{max-width:100%; display:block;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:92vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:6vh 6vw;
+    position:relative;
+    background:
+      radial-gradient(1.5px 1.5px at 12% 22%, rgba(244,236,218,0.55) 50%, transparent 51%),
+      radial-gradient(1.5px 1.5px at 82% 14%, rgba(244,236,218,0.4) 50%, transparent 51%),
+      radial-gradient(1px 1px at 34% 68%, rgba(244,236,218,0.5) 50%, transparent 51%),
+      radial-gradient(1px 1px at 66% 42%, rgba(244,236,218,0.35) 50%, transparent 51%),
+      radial-gradient(1.5px 1.5px at 92% 78%, rgba(244,236,218,0.4) 50%, transparent 51%),
+      radial-gradient(1px 1px at 8% 82%, rgba(244,236,218,0.3) 50%, transparent 51%),
+      linear-gradient(180deg, var(--ink) 0%, var(--midnight) 100%);
+  }
+
+  .hero .eyebrow{margin-bottom:1.4rem;}
+
+  .hero h1{
+    font-size:clamp(2.6rem, 7vw, 5rem);
+    color:var(--paper);
+    margin-bottom:1.1rem;
+  }
+
+  .hero p.hook{
+    font-size:clamp(1.15rem, 2.4vw, 1.5rem);
+    max-width:34ch;
+    color:rgba(244,236,218,0.85);
+    margin-bottom:2.4rem;
+  }
+
+  .scroll-cue{
+    width:1px;
+    height:44px;
+    background:linear-gradient(180deg, var(--gold), transparent);
+    position:relative;
+  }
+  .scroll-cue::after{
+    content:'';
+    position:absolute;
+    bottom:0; left:50%;
+    transform:translateX(-50%);
+    width:5px; height:5px;
+    border-radius:50%;
+    background:var(--gold);
+  }
+
+  /* ---------- BOOK SECTIONS ---------- */
+  .book{
+    position:relative;
+    padding:8vh 6vw;
+    display:grid;
+    grid-template-columns:minmax(220px, 320px) 1fr;
+    gap:5vw;
+    align-items:center;
+    overflow:hidden;
+  }
+
+  .book.nyc{
+    background:linear-gradient(160deg, #0b1524 0%, var(--midnight) 55%, #0e1a2b 100%);
+    border-top:1px solid var(--line);
+  }
+
+  .book.london{
+    background:linear-gradient(160deg, var(--amber-deep) 0%, var(--amber-mid) 60%, #5c3517 100%);
+    border-top:1px solid var(--line);
+  }
+
+  .cover-wrap{
+    position:relative;
+    justify-self:center;
+  }
+
+  .cover-wrap img{
+    border-radius:2px;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.65), 0 0 0 1px rgba(244,236,218,0.08);
+    width:100%;
+  }
+
+  /* ticket-stub "coming soon" badge — nods to the trains in both stories */
+  .ticket{
+    position:absolute;
+    top:-14px;
+    right:-28px;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Space Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    padding:0.55rem 0.9rem;
+    transform:rotate(6deg);
+    box-shadow:0 12px 24px -8px rgba(0,0,0,0.5);
+    border-radius:2px;
+  }
+  .ticket::before{
+    content:'';
+    position:absolute;
+    left:-6px; top:50%;
+    transform:translateY(-50%);
+    width:12px; height:12px;
+    border-radius:50%;
+    background:var(--ink);
+  }
+  .ticket::after{
+    content:'';
+    position:absolute;
+    right:-6px; top:50%;
+    transform:translateY(-50%);
+    width:12px; height:12px;
+    border-radius:50%;
+    background:var(--ink);
+  }
+  .ticket .line1{display:block; font-weight:700; letter-spacing:0.16em;}
+  .ticket .line2{display:block; opacity:0.55; font-size:0.6rem; margin-top:2px;}
+
+  .book-copy .eyebrow{margin-bottom:0.9rem;}
+
+  .book-copy h2{
+    font-size:clamp(1.9rem, 3.6vw, 2.9rem);
+    color:var(--paper);
+    margin-bottom:1.1rem;
+  }
+
+  .book-copy p.hook{
+    font-size:clamp(1.05rem, 1.8vw, 1.3rem);
+    max-width:52ch;
+    color:rgba(244,236,218,0.88);
+  }
+
+  .book.london .ticket{background:var(--paper); color:var(--amber-deep);}
+  .book.london .ticket::before, .book.london .ticket::after{background:var(--amber-deep);}
+  .book.nyc .ticket{background:var(--paper); color:var(--midnight);}
+  .book.nyc .ticket::before, .book.nyc .ticket::after{background:var(--midnight);}
+
+  /* ---------- ABOUT ---------- */
+  .about{
+    padding:9vh 6vw;
+    text-align:center;
+    background:var(--ink);
+    border-top:1px solid var(--line);
+  }
+  .about .eyebrow{margin-bottom:1.2rem;}
+  .about p{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size:clamp(1.2rem, 2.4vw, 1.6rem);
+    max-width:46ch;
+    margin:0 auto;
+    color:rgba(244,236,218,0.85);
+  }
+
+  /* ---------- SIGNUP / FOOTER ---------- */
+  .signup{
+    padding:10vh 6vw;
+    background:var(--midnight);
+    text-align:center;
+    border-top:1px solid var(--line);
+  }
+  .signup .eyebrow{margin-bottom:1rem;}
+  .signup h2{
+    font-size:clamp(1.8rem, 3.6vw, 2.6rem);
+    color:var(--paper);
+    margin-bottom:0.8rem;
+  }
+  .signup p.sub{
+    color:rgba(244,236,218,0.7);
+    max-width:40ch;
+    margin:0 auto 2.4rem;
+    font-size:0.98rem;
+  }
+
+  #mc_embed_signup{background:transparent; clear:left; width:100%; font-family:'Inter', sans-serif;}
+  #mc_embed_signup form{padding:0;}
+  #mc_embed_signup h2{display:none;}
+  #mc_embed_signup .indicates-required{display:none;}
+  #mc_embed_signup_scroll{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:1rem;
+  }
+  .mc-field-group{width:100%; max-width:420px;}
+  .mc-field-group label{display:none;}
+  #mce-EMAIL{
+    width:100%;
+    padding:0.95rem 1.2rem;
+    border:1px solid rgba(244,236,218,0.3);
+    background:rgba(244,236,218,0.06);
+    color:var(--paper);
+    border-radius:3px;
+    font-size:1rem;
+    font-family:'Inter', sans-serif;
+  }
+  #mce-EMAIL::placeholder{color:rgba(244,236,218,0.45);}
+  #mce-EMAIL:focus{outline:none; border-color:var(--gold);}
+
+  .optionalParent{width:100%; display:flex; justify-content:center;}
+  #mc-embedded-subscribe{
+    background:var(--wine);
+    color:var(--paper);
+    border:none;
+    padding:0.95rem 2.2rem;
+    font-family:'Space Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    border-radius:3px;
+    cursor:pointer;
+    transition:background 0.2s ease;
+  }
+  #mc-embedded-subscribe:hover{background:var(--wine-light);}
+
+  #mce-responses{max-width:420px; margin:0.6rem auto 0; font-size:0.85rem;}
+  #mce-error-response{color:#e08a8a;}
+  #mce-success-response{color:var(--gold);}
+
+  .refferal_badge{opacity:0.35; margin-top:1.6rem;}
+
+  footer.credit{
+    text-align:center;
+    padding:2.2rem 6vw 3rem;
+    background:var(--midnight);
+    font-family:'Space Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.08em;
+    color:rgba(244,236,218,0.35);
+  }
+
+  @media (max-width:760px){
+    .book{grid-template-columns:1fr; text-align:center;}
+    .book-copy p.hook{margin:0 auto;}
+    .cover-wrap{max-width:260px;}
+    .ticket{right:6px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+  <section class="hero">
+    <span class="eyebrow">Contemporary Romance</span>
+    <h1>E.M. Winters</h1>
+    <p class="hook">Stories about ambition, mistakes, and the people worth turning back for.</p>
+    <div class="scroll-cue"></div>
+  </section>
+
+  <section class="book london">
+    <div class="cover-wrap">
+      <img src="colleagues-with-benefits.jpg" alt="Colleagues with Benefits book cover">
+      <div class="ticket">
+        <span class="line1">Coming Soon</span>
+        <span class="line2">Boarding — TBA</span>
+      </div>
+    </div>
+    <div class="book-copy">
+      <span class="eyebrow">London · Office Romance</span>
+      <h2>Colleagues with Benefits</h2>
+      <p class="hook">She swore off office romance. He's SVP on another team entirely — and the man she's been watching on the train for months. One rule: colleagues, with benefits. No feelings. It was never going to be that simple.</p>
+    </div>
+  </section>
+
+  <section class="book nyc">
+    <div class="cover-wrap">
+      <img src="the-one-that-stays.jpg" alt="The One That Stays book cover">
+      <div class="ticket">
+        <span class="line1">Coming Soon</span>
+        <span class="line2">Boarding — TBA</span>
+      </div>
+    </div>
+    <div class="book-copy">
+      <span class="eyebrow">New York · Second Chances</span>
+      <h2>The One That Stays</h2>
+      <p class="hook">He stole her idea to build his career — and lost everything the moment the truth came out. Now he's back at the one night he can still undo it, and this time, he's not making the same mistake twice.</p>
+    </div>
+  </section>
+
+  <section class="about">
+    <span class="eyebrow">About</span>
+    <p>E.M. Winters writes contemporary romance about the messy, high-stakes moments when ambition and the heart collide — corner offices, closed doors, and the people who complicate everything in between.</p>
+  </section>
+
+  <section class="signup" id="signup">
+    <span class="eyebrow">Stay in the loop</span>
+    <h2>Be the first to know</h2>
+    <p class="sub">No spam — just a note the moment a release date is set.</p>
+
+    <div id="mc_embed_shell">
+      <div id="mc_embed_signup">
+        <form action="https://gmail.us11.list-manage.com/subscribe/post?u=510ca92348294a2130158f17f&amp;id=3687d91ecc&amp;f_id=001e17e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+          <div id="mc_embed_signup_scroll">
+            <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+            <div class="mc-field-group">
+              <label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label>
+              <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required placeholder="you@email.com" value="">
+            </div>
+            <div id="mce-responses" class="clear foot">
+              <div class="response" id="mce-error-response" style="display: none;"></div>
+              <div class="response" id="mce-success-response" style="display: none;"></div>
+            </div>
+            <div style="position: absolute; left: -5000px;" aria-hidden="true">
+              <input type="text" name="b_510ca92348294a2130158f17f_3687d91ecc" tabindex="-1" value="">
+            </div>
+            <div class="optionalParent">
+              <div class="clear foot">
+                <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Notify Me">
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="credit">© E.M. Winters — All rights reserved</footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+  <script>
+    (function($) {
+      window.fnames = new Array(); window.ftypes = new Array();
+      fnames[0]='EMAIL'; ftypes[0]='email';
+      fnames[1]='FNAME'; ftypes[1]='text';
+      fnames[2]='LNAME'; ftypes[2]='text';
+      fnames[3]='ADDRESS'; ftypes[3]='address';
+      fnames[4]='PHONE'; ftypes[4]='phone';
+      fnames[5]='BIRTHDAY'; ftypes[5]='birthday';
+      fnames[6]='COMPANY'; ftypes[6]='text';
+    }(jQuery));
+    var $mcj = jQuery.noConflict(true);
+  </script>
+
+</body>
+</html>
